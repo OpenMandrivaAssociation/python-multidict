@@ -2,7 +2,7 @@
 
 Name:		python-%{modname}
 Version:	4.7.5
-Release:	2
+Release:	3
 Summary:	MultiDict implementation
 License:	ASL 2.0
 URL:		https://github.com/aio-libs/multidict
