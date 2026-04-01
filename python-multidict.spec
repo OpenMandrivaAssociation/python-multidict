@@ -1,12 +1,14 @@
-%global modname multidict
+%define module multidict
 
-Name:		python-%{modname}
-Version:	6.7.0
+Name:		python-multidict
+Version:	6.7.1
 Release:	1
 Summary:	MultiDict implementation
-License:	ASL 2.0
+License:	Apache-2.0
+Group:		Development/Python
 URL:		https://github.com/aio-libs/multidict
-Source0:	%{url}/archive/v%{version}%{?rctag:%{rctag}}/%{modname}-%{version}%{?rctag:%{rctag}}.tar.gz
+Source0:	%{URL}/archive/v%{version}/%{name}-%{version}.tar.gz
+
 BuildSystem:	python
 BuildRequires:	pkgconfig(python)
 BuildRequires:	python%{pyver}dist(setuptools)
@@ -17,13 +19,14 @@ BuildRequires:	python%{pyver}dist(cython)
 Multidicts are useful for working with HTTP headers, URL query args etc.
 The code was extracted from aiohttp library.
 
-%prep -a
+%build -p
+export LDFLAGS="%{ldflags} -lpython%{py_ver}"
 
 %install -a
-rm -vf %{buildroot}%{python_sitearch}/%{modname}/*.{c,pyx}
+rm -vf %{buildroot}%{python_sitearch}/%{module}/*.{c,pyx}
 
 %files
-%license LICENSE
 %doc README.rst
-%{python_sitearch}/%{modname}-%{version}.dist-info
-%{python_sitearch}/%{modname}/
+%license LICENSE
+%{python_sitearch}/%{module}
+%{python_sitearch}/%{module}-%{version}.dist-info
