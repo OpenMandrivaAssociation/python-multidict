@@ -2,7 +2,7 @@
 
 Name:		python-multidict
 Version:	6.7.1
-Release:	1
+Release:	2
 Summary:	MultiDict implementation
 License:	Apache-2.0
 Group:		Development/Python
